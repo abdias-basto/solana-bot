@@ -1,0 +1,1994 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leycaslaw — Firma de Abogados, Panamá</title>
+<meta name="description" content="Leycaslaw — Leyton y Castillo. Firma de abogados en la República de Panamá. Especialistas en Derecho Penal, Civil, Comercial, Familia y Laboral.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: oklch(98% 0.008 85);
+  --bg-alt: oklch(95.5% 0.012 80);
+  --ink: oklch(12% 0.01 260);
+  --ink-mid: oklch(38% 0.01 260);
+  --ink-light: oklch(58% 0.01 260);
+  --gold: oklch(55% 0.12 75);
+  --gold-light: oklch(88% 0.06 80);
+  --gold-hover: oklch(48% 0.13 75);
+  --divider: oklch(88% 0.012 80);
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'DM Sans', Helvetica, sans-serif;
+  --nav-h: 72px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ─── NAV ─── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--nav-h);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5vw;
+  background: oklch(98% 0.008 85 / 0.92);
+  backdrop-filter: blur(18px) saturate(1.4);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  border-bottom: 1px solid var(--divider);
+}
+
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+  flex-shrink: 0;
+}
+.nav-logo span.sub {
+  font-family: var(--sans);
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
+}
+.nav-links li { position: relative; }
+
+.nav-links a, .nav-links button {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.45rem 0.8rem;
+  border-radius: 4px;
+  transition: color 0.2s, background 0.2s;
+}
+.nav-links a:hover, .nav-links button:hover,
+.nav-links a.active { color: var(--ink); }
+
+.nav-links a.cta-nav {
+  color: var(--bg);
+  background: var(--ink);
+  padding: 0.5rem 1.1rem;
+  border-radius: 100px;
+  margin-left: 0.5rem;
+  transition: background 0.2s, transform 0.15s;
+}
+.nav-links a.cta-nav:hover { background: var(--gold); transform: translateY(-1px); }
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background: var(--bg);
+  border: 1px solid var(--divider);
+  border-radius: 10px;
+  overflow: hidden;
+  min-width: 200px;
+  box-shadow: 0 8px 32px oklch(12% 0.01 260 / 0.1);
+}
+.nav-links li:hover .dropdown-menu { display: block; }
+.dropdown-menu a {
+  display: block;
+  padding: 0.65rem 1.1rem;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-size: 0.85rem;
+  border-radius: 0;
+  color: var(--ink-mid);
+}
+.dropdown-menu a:hover { background: var(--bg-alt); color: var(--ink); }
+
+/* Hamburger */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 0.5rem;
+  background: none;
+  border: none;
+}
+.nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 2px; transition: transform 0.2s, opacity 0.2s; }
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ─── PAGE SYSTEM ─── */
+.page { display: none; }
+.page.active { display: block; animation: pageFade 0.3s ease; }
+@keyframes pageFade {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  padding-top: var(--nav-h);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr auto;
+  position: relative;
+  overflow: hidden;
+}
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8vw 6vw 8vw 8vw;
+  position: relative;
+  z-index: 2;
+}
+.hero-eyebrow {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+}
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+  text-wrap: pretty;
+}
+.hero h1 em { font-style: italic; color: var(--gold); }
+.hero-sub {
+  font-size: 1rem;
+  color: var(--ink-mid);
+  max-width: 420px;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.hero-right {
+  position: relative;
+  overflow: hidden;
+  background: var(--ink);
+}
+.hero-right img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.75;
+  filter: grayscale(25%) brightness(0.85);
+}
+.hero-stats {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--divider);
+  background: var(--bg);
+}
+.stat-item {
+  padding: 2rem 2.5rem;
+  border-right: 1px solid var(--divider);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.stat-item:last-child { border-right: none; }
+.stat-num {
+  font-family: var(--serif);
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1;
+}
+.stat-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+}
+
+/* ─── SECTIONS ─── */
+section { padding: 7rem 8vw; }
+
+.section-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.section-eyebrow::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--gold);
+}
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+.section-body {
+  font-size: 1rem;
+  color: var(--ink-mid);
+  line-height: 1.75;
+  max-width: 600px;
+}
+
+/* ─── BUTTONS ─── */
+.btn-primary {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--ink);
+  text-decoration: none;
+  padding: 0.9rem 2rem;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.btn-primary:hover { background: var(--gold); transform: translateY(-2px); }
+
+.btn-ghost {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+  text-decoration: none;
+  padding: 0.9rem 1.5rem;
+  border-radius: 100px;
+  border: 1.5px solid var(--divider);
+  cursor: pointer;
+  background: none;
+  transition: border-color 0.2s, color 0.2s, transform 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.btn-ghost:hover { border-color: var(--ink); color: var(--ink); transform: translateY(-2px); }
+
+/* ─── WELCOME SECTION ─── */
+.welcome-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8vw;
+  align-items: center;
+}
+.welcome-text { display: flex; flex-direction: column; gap: 1.5rem; }
+.welcome-visual {
+  position: relative;
+  height: 520px;
+}
+.welcome-card-main {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.welcome-card-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.92);
+}
+.welcome-card-float {
+  position: absolute;
+  bottom: -1.5rem;
+  left: -2rem;
+  background: var(--bg);
+  border: 1px solid var(--divider);
+  border-radius: 14px;
+  padding: 1.4rem 1.8rem;
+  box-shadow: 0 12px 40px oklch(12% 0.01 260 / 0.12);
+  min-width: 220px;
+  z-index: 3;
+}
+.welcome-card-float .wc-num {
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1;
+}
+.welcome-card-float .wc-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  margin-top: 0.2rem;
+}
+.welcome-card-float2 {
+  position: absolute;
+  top: 2rem;
+  right: -1.5rem;
+  background: var(--ink);
+  border-radius: 14px;
+  padding: 1.2rem 1.6rem;
+  box-shadow: 0 12px 40px oklch(12% 0.01 260 / 0.2);
+  z-index: 3;
+}
+.welcome-card-float2 .wc2-txt {
+  font-family: var(--serif);
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--bg);
+  line-height: 1.4;
+  max-width: 180px;
+}
+
+/* ─── EXPERTISE SECTION (dark) ─── */
+.expertise-section {
+  background: var(--ink);
+  color: var(--bg);
+  padding: 7rem 8vw;
+}
+.expertise-section .section-title { color: var(--bg); }
+.expertise-section .section-body { color: oklch(75% 0.01 260); }
+.expertise-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6vw;
+  align-items: end;
+  margin-bottom: 4rem;
+}
+.expertise-header .section-eyebrow::before { background: var(--gold); }
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5px;
+  background: oklch(25% 0.01 260);
+}
+.expertise-card {
+  background: oklch(14% 0.01 260);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  cursor: pointer;
+  transition: background 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+.expertise-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gold);
+  transition: width 0.35s;
+}
+.expertise-card:hover { background: oklch(17% 0.01 260); }
+.expertise-card:hover::after { width: 100%; }
+.ec-num {
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  font-weight: 500;
+}
+.ec-title {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--bg);
+  line-height: 1.3;
+}
+.ec-body {
+  font-size: 0.88rem;
+  color: oklch(62% 0.01 260);
+  line-height: 1.7;
+}
+.ec-arrow {
+  margin-top: auto;
+  font-size: 1.2rem;
+  color: var(--gold);
+  transition: transform 0.2s;
+}
+.expertise-card:hover .ec-arrow { transform: translateX(5px); }
+
+/* ─── CASOS DESTACADOS ─── */
+.casos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: var(--divider);
+  border-radius: 20px;
+  overflow: hidden;
+  margin-top: 3.5rem;
+}
+.caso-card {
+  background: var(--bg);
+  overflow: hidden;
+  position: relative;
+  height: 400px;
+  cursor: pointer;
+}
+.caso-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(70%) brightness(0.6);
+  transition: filter 0.4s, transform 0.4s;
+}
+.caso-card:hover img {
+  filter: grayscale(30%) brightness(0.7);
+  transform: scale(1.04);
+}
+.caso-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, oklch(8% 0.01 260 / 0.92) 0%, transparent 55%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem;
+}
+.caso-verdict {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+.caso-title {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--bg);
+  line-height: 1.2;
+}
+.caso-body {
+  font-size: 0.85rem;
+  color: oklch(72% 0.01 260);
+  line-height: 1.6;
+  margin-top: 0.5rem;
+}
+
+/* ─── METODOLOGÍA ─── */
+.method-section {
+  background: var(--bg-alt);
+  padding: 7rem 8vw;
+}
+.method-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem;
+  margin-top: 4rem;
+}
+.method-card { display: flex; flex-direction: column; gap: 1rem; }
+.method-num {
+  font-family: var(--serif);
+  font-size: 3.5rem;
+  font-weight: 400;
+  color: var(--gold-light);
+  line-height: 1;
+}
+.method-title {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+.method-body {
+  font-size: 0.88rem;
+  color: var(--ink-mid);
+  line-height: 1.7;
+}
+
+/* ─── CTA BANNER ─── */
+.cta-banner {
+  background: var(--ink);
+  padding: 6rem 8vw;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 4rem;
+}
+.cta-banner-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.5vw, 3.5rem);
+  font-weight: 500;
+  color: var(--bg);
+  line-height: 1.15;
+}
+.cta-banner-title em { font-style: italic; color: var(--gold); }
+
+/* ─── AREAS STRIP (home) ─── */
+.areas-strip {
+  border-top: 1px solid var(--divider);
+  border-bottom: 1px solid var(--divider);
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.areas-strip::-webkit-scrollbar { display: none; }
+.area-tab {
+  padding: 1.25rem 2.5rem;
+  border-right: 1px solid var(--divider);
+  white-space: nowrap;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+  flex-shrink: 0;
+}
+.area-tab:hover, .area-tab.selected { color: var(--ink); background: var(--bg-alt); }
+.area-content-panel {
+  padding: 4rem 8vw;
+  display: none;
+  animation: fadeUp 0.3s ease;
+}
+.area-content-panel.shown { display: grid; grid-template-columns: 1fr 2fr; gap: 6vw; align-items: start; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── PRACTICA PAGE ─── */
+.practica-hero {
+  padding-top: calc(var(--nav-h) + 6rem);
+  padding-bottom: 4rem;
+  padding-left: 8vw;
+  padding-right: 8vw;
+  border-bottom: 1px solid var(--divider);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8vw;
+  align-items: end;
+}
+.practica-areas { padding: 5rem 8vw; }
+.area-item {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 5vw;
+  padding: 4rem 0;
+  border-bottom: 1px solid var(--divider);
+  align-items: start;
+  cursor: pointer;
+}
+.area-item:first-child { border-top: 1px solid var(--divider); }
+.area-item:hover .area-title { color: var(--gold); }
+.area-num {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  padding-top: 0.2rem;
+}
+.area-col-left { display: flex; flex-direction: column; gap: 0.75rem; }
+.area-title {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--ink);
+  transition: color 0.2s;
+}
+.area-body {
+  font-size: 0.92rem;
+  color: var(--ink-mid);
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+.area-list { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+.area-list li {
+  font-size: 0.85rem;
+  color: var(--ink-mid);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.area-list li::before {
+  content: '';
+  display: block;
+  width: 18px;
+  height: 1px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+/* ─── NOSOTROS PAGE ─── */
+.nosotros-hero {
+  padding-top: calc(var(--nav-h) + 6rem);
+  padding-bottom: 4rem;
+  padding-left: 8vw;
+  padding-right: 8vw;
+  border-bottom: 1px solid var(--divider);
+  max-width: 900px;
+}
+.nosotros-about {
+  padding: 7rem 8vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8vw;
+  align-items: start;
+}
+.mision-vision { display: flex; flex-direction: column; gap: 2rem; }
+.mv-card {
+  border-left: 2px solid var(--gold);
+  padding-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.mv-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--gold);
+}
+.mv-text { font-size: 0.92rem; color: var(--ink-mid); line-height: 1.7; }
+
+.valores-section {
+  background: var(--ink);
+  padding: 7rem 8vw;
+  color: var(--bg);
+}
+.valores-section .section-title { color: var(--bg); }
+.valores-section .section-eyebrow::before { background: var(--gold); }
+.valores-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2px;
+  background: oklch(25% 0.01 260);
+  margin-top: 4rem;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.valor-card {
+  background: oklch(14% 0.01 260);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.valor-name { font-family: var(--serif); font-size: 1.1rem; color: var(--bg); }
+.valor-body { font-size: 0.82rem; color: oklch(60% 0.01 260); line-height: 1.6; }
+
+.abogados-section {
+  padding: 7rem 8vw;
+  background: var(--bg-alt);
+}
+.abogados-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 4rem;
+}
+.abogado-card {
+  background: var(--bg);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--divider);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.abogado-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px oklch(12% 0.01 260 / 0.12);
+}
+.abogado-img-wrap {
+  height: 320px;
+  position: relative;
+  overflow: hidden;
+  background: var(--ink);
+}
+.abogado-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.4s;
+}
+.abogado-card:hover .abogado-img-wrap img { transform: scale(1.03); }
+.abogado-info {
+  padding: 1.75rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.abogado-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 500; color: var(--ink); }
+.abogado-role {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+}
+.abogado-body { font-size: 0.88rem; color: var(--ink-mid); line-height: 1.65; margin-top: 0.25rem; }
+.abogado-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  margin-top: 0.5rem;
+  transition: color 0.2s;
+}
+.abogado-link:hover { color: var(--gold); }
+.abogado-link::after { content: '→'; transition: transform 0.2s; }
+.abogado-link:hover::after { transform: translateX(4px); }
+
+/* ─── PROFILE PAGE ─── */
+.profile-layout {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  min-height: 100vh;
+  padding-top: var(--nav-h);
+}
+.profile-left {
+  position: sticky;
+  top: var(--nav-h);
+  height: calc(100vh - var(--nav-h));
+  background: var(--ink);
+  display: flex;
+  flex-direction: column;
+}
+.profile-photo {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+.profile-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+.profile-meta {
+  padding: 2rem;
+  border-top: 1px solid oklch(25% 0.01 260);
+}
+.profile-meta .p-name {
+  font-family: var(--serif);
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: var(--bg);
+  line-height: 1.2;
+}
+.profile-meta .p-role {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+  margin-top: 0.4rem;
+}
+.profile-right {
+  padding: 5rem 6vw;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+.profile-section { display: flex; flex-direction: column; gap: 1rem; }
+.profile-section-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.profile-section-label::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: var(--gold);
+}
+.profile-section-title {
+  font-family: var(--serif);
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.2;
+}
+.profile-body { font-size: 0.95rem; color: var(--ink-mid); line-height: 1.8; }
+.profile-specialties { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.specialty-tag {
+  background: var(--bg-alt);
+  border: 1px solid var(--divider);
+  padding: 0.4rem 0.9rem;
+  border-radius: 100px;
+  font-size: 0.78rem;
+  color: var(--ink-mid);
+  font-weight: 500;
+}
+
+/* ─── AGENDA / CONTACT ─── */
+.agenda-layout {
+  min-height: 100vh;
+  padding-top: var(--nav-h);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.agenda-left {
+  background: var(--ink);
+  padding: 7rem 6vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+.agenda-left .section-title { color: var(--bg); }
+.agenda-left .section-body { color: oklch(65% 0.01 260); }
+.agenda-left .section-eyebrow::before { background: var(--gold); }
+.contact-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+.cd-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: oklch(20% 0.01 260);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.9rem;
+}
+.cd-text { font-size: 0.9rem; color: oklch(65% 0.01 260); line-height: 1.5; }
+.cd-text strong {
+  display: block;
+  color: var(--bg);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.1rem;
+}
+.agenda-right {
+  padding: 7rem 6vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ─── FORMS ─── */
+.form-group { display: flex; flex-direction: column; gap: 0.45rem; margin-bottom: 1.25rem; }
+.form-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink-mid);
+}
+.form-input, .form-textarea {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: var(--bg-alt);
+  border: 1.5px solid var(--divider);
+  border-radius: 10px;
+  padding: 0.85rem 1.1rem;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  width: 100%;
+}
+.form-input:focus, .form-textarea:focus {
+  border-color: var(--ink);
+  background: var(--bg);
+}
+.form-textarea { resize: vertical; min-height: 130px; }
+.form-success {
+  display: none;
+  background: oklch(88% 0.1 145 / 0.2);
+  border: 1px solid oklch(65% 0.15 145);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  font-size: 0.88rem;
+  color: oklch(32% 0.12 145);
+  margin-top: 1rem;
+}
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--ink);
+  padding: 4rem 8vw 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 4rem;
+}
+.footer-brand .fb-name { font-family: var(--serif); font-size: 1.4rem; color: var(--bg); margin-bottom: 0.75rem; }
+.footer-brand .fb-desc { font-size: 0.85rem; color: oklch(52% 0.01 260); line-height: 1.7; max-width: 320px; }
+.footer-col h4 {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: oklch(45% 0.01 260);
+  margin-bottom: 1.25rem;
+}
+.footer-col a, .footer-col span {
+  display: block;
+  font-size: 0.85rem;
+  color: oklch(58% 0.01 260);
+  text-decoration: none;
+  margin-bottom: 0.6rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.footer-col a:hover, .footer-col span:hover { color: var(--bg); }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid oklch(22% 0.01 260);
+  padding-top: 1.75rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-copy { font-size: 0.78rem; color: oklch(42% 0.01 260); }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a {
+  font-size: 0.78rem;
+  color: oklch(42% 0.01 260);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: oklch(65% 0.01 260); }
+
+/* ─── MISC ─── */
+.page-hero-divider { width: 48px; height: 2px; background: var(--gold); margin: 1.5rem 0; }
+.quote-block {
+  border-left: 2px solid var(--gold);
+  padding: 1.25rem 0 1.25rem 2rem;
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--ink-mid);
+  line-height: 1.5;
+  margin: 2rem 0;
+}
+.pill-tag {
+  background: var(--bg-alt);
+  border: 1px solid var(--divider);
+  border-radius: 100px;
+  padding: 0.55rem 1.25rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--ink-mid);
+}
+.pills-wrap { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.stats-mini {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+.stats-mini-card {
+  background: var(--bg-alt);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+.stats-mini-card .sm-num {
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.stats-mini-card .sm-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  margin-top: 0.2rem;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) {
+  .expertise-grid { grid-template-columns: repeat(2, 1fr); }
+  .profile-layout { grid-template-columns: 340px 1fr; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  .footer-top .footer-brand { grid-column: 1 / -1; }
+}
+
+@media (max-width: 768px) {
+  /* Mobile nav */
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: var(--nav-h);
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    flex-direction: column;
+    padding: 1.5rem 5vw 2rem;
+    border-bottom: 1px solid var(--divider);
+    box-shadow: 0 8px 32px oklch(12% 0.01 260 / 0.1);
+    gap: 0.25rem;
+    z-index: 99;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a.cta-nav { margin-left: 0; text-align: center; justify-content: center; }
+  .nav-hamburger { display: flex; }
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    border: none;
+    background: var(--bg-alt);
+    border-radius: 8px;
+    margin-top: 0.25rem;
+  }
+
+  /* Hero */
+  .hero { grid-template-columns: 1fr; grid-template-rows: auto auto auto; }
+  .hero-left { padding: 6vw 5vw; }
+  .hero-right { height: 55vw; min-height: 260px; }
+  .hero-stats { grid-template-columns: 1fr 1fr; }
+  .stat-item { padding: 1.5rem 1.25rem; }
+  .stat-num { font-size: 1.8rem; }
+
+  /* Sections */
+  section { padding: 5rem 5vw; }
+  .welcome-section { grid-template-columns: 1fr; gap: 3rem; }
+  .welcome-visual { height: 380px; }
+  .welcome-card-float { bottom: -1rem; left: -0.5rem; }
+  .welcome-card-float2 { display: none; }
+
+  .expertise-section { padding: 5rem 5vw; }
+  .expertise-header { grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 2.5rem; }
+  .expertise-grid { grid-template-columns: 1fr; }
+
+  .casos-grid { grid-template-columns: 1fr; }
+  .caso-card { height: 320px; }
+
+  .method-section { padding: 5rem 5vw; }
+  .method-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+
+  .cta-banner { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 5vw; }
+
+  .area-content-panel.shown { grid-template-columns: 1fr; gap: 2rem; }
+
+  /* Practica */
+  .practica-hero { grid-template-columns: 1fr; gap: 2rem; padding-top: calc(var(--nav-h) + 3rem); }
+  .practica-areas { padding: 3rem 5vw; }
+  .area-item { grid-template-columns: 1fr; gap: 1.25rem; padding: 2.5rem 0; }
+
+  /* Nosotros */
+  .nosotros-hero { padding-top: calc(var(--nav-h) + 3rem); padding-left: 5vw; padding-right: 5vw; }
+  .nosotros-about { grid-template-columns: 1fr; padding: 5rem 5vw; gap: 3rem; }
+
+  .valores-section { padding: 5rem 5vw; }
+  .valores-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .abogados-section { padding: 5rem 5vw; }
+  .abogados-grid { grid-template-columns: 1fr; }
+
+  /* Profile */
+  .profile-layout { grid-template-columns: 1fr; }
+  .profile-left { position: static; height: auto; }
+  .profile-photo { height: 70vw; min-height: 280px; flex: none; }
+  .profile-right { padding: 3rem 5vw; }
+  .profile-section-title { font-size: 1.6rem; }
+
+  /* Agenda */
+  .agenda-layout { grid-template-columns: 1fr; }
+  .agenda-left { padding: 5rem 5vw 3rem; }
+  .agenda-right { padding: 3rem 5vw 5rem; }
+
+  /* Footer */
+  footer { padding: 4rem 5vw 2rem; }
+  .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-top .footer-brand { grid-column: auto; }
+
+  .stats-mini { gap: 1rem; }
+}
+
+@media (max-width: 480px) {
+  .hero-stats { grid-template-columns: 1fr 1fr; }
+  .method-grid { grid-template-columns: 1fr; }
+  .valores-grid { grid-template-columns: 1fr 1fr; }
+  .abogados-grid { grid-template-columns: 1fr; }
+  .casos-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ NAV ═══════════════ -->
+<nav>
+  <div class="nav-logo" onclick="showPage('inicio')">
+    Leycaslaw
+    <span class="sub">Firma de Abogados · Panamá</span>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#" onclick="nav('inicio');return false;" id="nav-inicio">Inicio</a></li>
+    <li><a href="#" onclick="nav('nosotros');return false;" id="nav-nosotros">Nosotros</a></li>
+    <li><a href="#" onclick="nav('practica');return false;" id="nav-practica">Práctica</a></li>
+    <li>
+      <button onclick="toggleDropdown(this)">Abogados ▾</button>
+      <div class="dropdown-menu">
+        <a href="#" onclick="nav('francisco');return false;">Francisco Castillo</a>
+        <a href="#" onclick="nav('daniel');return false;">Daniel Leyton</a>
+      </div>
+    </li>
+    <li><a href="#" onclick="nav('agenda');return false;" class="cta-nav" id="nav-agenda">Agenda una Cita</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+
+<!-- ═══════════════ INICIO ═══════════════ -->
+<div class="page active" id="page-inicio">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-left">
+      <p class="hero-eyebrow">Leycaslaw · Panamá</p>
+      <h1>Cuando tus derechos están<br>en juego, elige <em>experiencia.</em></h1>
+      <p class="hero-sub">Protegemos tus derechos con integridad, experiencia y resultados. Con sede en la Ciudad de Panamá, atendemos a clientes en todo el país.</p>
+      <div class="hero-actions">
+        <a href="#" class="btn-primary" onclick="nav('agenda');return false;">Agenda una Cita</a>
+        <a href="#" class="btn-ghost" onclick="nav('practica');return false;">Áreas de Práctica</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1400&q=80" alt="Martillo de justicia">
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num">30+</span>
+        <span class="stat-label">Años de experiencia</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">100%</span>
+        <span class="stat-label">Clientes satisfechos</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">10k</span>
+        <span class="stat-label">Horas de servicio</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">11k</span>
+        <span class="stat-label">Clientes referidos</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bienvenidos -->
+  <section>
+    <div class="welcome-section">
+      <div class="welcome-text">
+        <p class="section-eyebrow">Bienvenidos a Leycaslaw</p>
+        <h2 class="section-title">Una propuesta legal moderna, ética y centrada en el cliente.</h2>
+        <p class="section-body">Nuestra firma está constituida sobre los pilares de la transparencia, la integridad y la excelencia profesional. Con sede en la Ciudad de Panamá, atendemos a clientes de todo el país en una amplia gama de servicios legales, con énfasis especial en el derecho penal.</p>
+        <a href="#" class="btn-ghost" onclick="nav('nosotros');return false;">Conocer más →</a>
+      </div>
+      <div class="welcome-visual">
+        <div class="welcome-card-main">
+          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1000&q=80" alt="Documentos legales y despacho">
+        </div>
+        <div class="welcome-card-float">
+          <div class="wc-num">30+</div>
+          <div class="wc-label">Años de experiencia</div>
+        </div>
+        <div class="welcome-card-float2">
+          <div class="wc2-txt">"Nos involucramos en tu defensa como si fuera la nuestra."</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expertise dark section -->
+  <div class="expertise-section">
+    <div class="expertise-header">
+      <div>
+        <p class="section-eyebrow">Expertos en derecho penal</p>
+        <h2 class="section-title">Tu defensa legal en manos expertas</h2>
+      </div>
+      <p class="section-body">En Leycaslaw, defendemos tus derechos con compromiso, experiencia y resultados. Ya sea que enfrentes un proceso penal, necesites orientación preventiva o busques asesoría en otras áreas, estamos aquí.</p>
+    </div>
+    <div class="expertise-grid">
+      <div class="expertise-card">
+        <div class="ec-num">01</div>
+        <div class="ec-title">Derecho Penal</div>
+        <div class="ec-body">Defensa integral en procesos penales, representación de víctimas, delitos financieros y asesoría en investigaciones previas.</div>
+        <div class="ec-arrow">→</div>
+      </div>
+      <div class="expertise-card">
+        <div class="ec-num">02</div>
+        <div class="ec-title">Derecho Civil</div>
+        <div class="ec-body">Resolvemos conflictos entre particulares de forma eficiente, justa y legalmente sólida en todo tipo de procesos civiles.</div>
+        <div class="ec-arrow">→</div>
+      </div>
+      <div class="expertise-card">
+        <div class="ec-num">03</div>
+        <div class="ec-title">Derecho Comercial</div>
+        <div class="ec-body">Asesoramos a empresarios, comerciantes y sociedades para operar dentro del marco legal y proteger sus intereses.</div>
+        <div class="ec-arrow">→</div>
+      </div>
+      <div class="expertise-card">
+        <div class="ec-num">04</div>
+        <div class="ec-title">Derecho de Familia</div>
+        <div class="ec-body">Te acompañamos en los momentos más sensibles con orientación legal clara, humana y soluciones equitativas.</div>
+        <div class="ec-arrow">→</div>
+      </div>
+      <div class="expertise-card">
+        <div class="ec-num">05</div>
+        <div class="ec-title">Derecho Laboral</div>
+        <div class="ec-body">Asesoramos a empleadores y trabajadores en procesos individuales o colectivos, con enfoque en la justicia laboral.</div>
+        <div class="ec-arrow">→</div>
+      </div>
+      <div class="expertise-card">
+        <div class="ec-num">06</div>
+        <div class="ec-title">Derecho Internacional</div>
+        <div class="ec-body">Orientación y representación en asuntos que trascienden fronteras, especialmente en el ámbito iberoamericano.</div>
+        <div class="ec-arrow">→</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Casos destacados -->
+  <section>
+    <p class="section-eyebrow">Resultados comprobados</p>
+    <h2 class="section-title">Casos destacados</h2>
+    <div class="casos-grid">
+      <div class="caso-card">
+        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?auto=format&fit=crop&w=900&q=80" alt="Litigio de Propiedad">
+        <div class="caso-overlay">
+          <div class="caso-verdict">Demanda Civil · Ganada</div>
+          <div class="caso-title">Litigio de Propiedad Comercial</div>
+          <div class="caso-body">Representación exitosa en disputa de bienes raíces con múltiples partes involucradas.</div>
+        </div>
+      </div>
+      <div class="caso-card">
+        <img src="https://images.unsplash.com/photo-1521791055366-0d553872952f?auto=format&fit=crop&w=900&q=80" alt="Defensa Penal">
+        <div class="caso-overlay">
+          <div class="caso-verdict">Defensa Penal · Ganada</div>
+          <div class="caso-title">Defensa en Caso de Alto Perfil</div>
+          <div class="caso-body">Absolución obtenida en proceso penal acusatorio de alta complejidad y exposición mediática.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metodología -->
+  <div class="method-section">
+    <p class="section-eyebrow">Cómo trabajamos</p>
+    <h2 class="section-title">Una metodología comprobada</h2>
+    <div class="method-grid">
+      <div class="method-card">
+        <div class="method-num">01</div>
+        <div class="method-title">Defendemos tus derechos</div>
+        <div class="method-body">Analizamos cada caso con profundidad para construir la defensa más sólida posible, sin importar la complejidad.</div>
+      </div>
+      <div class="method-card">
+        <div class="method-num">02</div>
+        <div class="method-title">Excelencia legal asegurada</div>
+        <div class="method-body">Aplicamos los más altos estándares legales y éticos en cada actuación, garantizando resultados de calidad.</div>
+      </div>
+      <div class="method-card">
+        <div class="method-num">03</div>
+        <div class="method-title">Justicia y protección</div>
+        <div class="method-body">Velamos por tus intereses en cada etapa del proceso, con comunicación clara y transparente en todo momento.</div>
+      </div>
+      <div class="method-card">
+        <div class="method-num">04</div>
+        <div class="method-title">Tus asesores de confianza</div>
+        <div class="method-body">Construimos relaciones de largo plazo con nuestros clientes, siendo su respaldo legal en cualquier situación.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA banner -->
+  <div class="cta-banner">
+    <div>
+      <h2 class="cta-banner-title">Tu escudo legal<br><em>espera por ti.</em></h2>
+    </div>
+    <a href="#" class="btn-primary" onclick="nav('agenda');return false;" style="white-space:nowrap;background:var(--gold);font-size:0.85rem;padding:1rem 2.25rem;">Agenda una Cita</a>
+  </div>
+
+  <!-- Areas strip + detail panel -->
+  <section style="padding: 0;">
+    <div style="padding: 5rem 8vw 2rem;">
+      <p class="section-eyebrow">Nuestras áreas de práctica</p>
+      <h2 class="section-title">Expertos en múltiples<br>ramas del derecho</h2>
+    </div>
+    <div class="areas-strip">
+      <div class="area-tab selected" onclick="selectArea(this,'penal')">Derecho Penal</div>
+      <div class="area-tab" onclick="selectArea(this,'civil')">Derecho Civil</div>
+      <div class="area-tab" onclick="selectArea(this,'comercial')">Derecho Comercial</div>
+    </div>
+    <div class="area-content-panel shown" id="area-penal">
+      <div>
+        <p class="section-eyebrow">01 / Penal</p>
+        <h3 class="section-title" style="font-size:1.6rem;">Derecho Penal</h3>
+      </div>
+      <div>
+        <p class="section-body" style="max-width:100%;margin-bottom:1.5rem;">Defendemos tus derechos con firmeza y conocimiento, tanto en el sistema penal acusatorio como en el inquisitivo. Representamos a imputados y víctimas en todas las etapas del proceso penal, con una trayectoria sólida en casos de alta complejidad.</p>
+        <a href="#" class="btn-primary" onclick="nav('practica');return false;">Ver área completa</a>
+      </div>
+    </div>
+    <div class="area-content-panel" id="area-civil">
+      <div>
+        <p class="section-eyebrow">02 / Civil</p>
+        <h3 class="section-title" style="font-size:1.6rem;">Derecho Civil</h3>
+      </div>
+      <div>
+        <p class="section-body" style="max-width:100%;margin-bottom:1.5rem;">Resolvemos conflictos entre particulares de forma eficiente, justa y legalmente sólida. Actuamos en todo tipo de procesos civiles y patrimoniales con enfoque estratégico y personalizado para cada cliente.</p>
+        <a href="#" class="btn-primary" onclick="nav('practica');return false;">Ver área completa</a>
+      </div>
+    </div>
+    <div class="area-content-panel" id="area-comercial">
+      <div>
+        <p class="section-eyebrow">03 / Comercial</p>
+        <h3 class="section-title" style="font-size:1.6rem;">Derecho Comercial</h3>
+      </div>
+      <div>
+        <p class="section-body" style="max-width:100%;margin-bottom:1.5rem;">En un entorno empresarial dinámico, contar con asesoría legal especializada es esencial. Apoyamos a emprendedores y empresas en su actividad jurídica diaria, desde la constitución hasta litigios complejos.</p>
+        <a href="#" class="btn-primary" onclick="nav('practica');return false;">Ver área completa</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact form -->
+  <section style="background: var(--bg-alt); padding: 7rem 8vw;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8vw;align-items:start;">
+      <div style="display:flex;flex-direction:column;gap:1.5rem;">
+        <p class="section-eyebrow">Agenda una cita</p>
+        <h2 class="section-title">¿Necesita representación legal?</h2>
+        <p class="section-body">En Leycaslaw estamos listos para escucharte y ayudarte. Confidencialidad, compromiso y atención profesional desde el primer contacto.</p>
+        <div style="display:flex;flex-direction:column;gap:1rem;margin-top:1rem;">
+          <div class="contact-detail" style="align-items:flex-start;">
+            <div class="cd-icon" style="background:var(--bg);border:1px solid var(--divider);color:var(--ink-mid);">✉</div>
+            <div class="cd-text" style="color:var(--ink-mid);"><strong style="color:var(--ink);">Email</strong>info@leycaslaw.com</div>
+          </div>
+          <div class="contact-detail">
+            <div class="cd-icon" style="background:var(--bg);border:1px solid var(--divider);color:var(--ink-mid);">☎</div>
+            <div class="cd-text" style="color:var(--ink-mid);"><strong style="color:var(--ink);">Ubicación</strong>Ciudad de Panamá, Rep. de Panamá</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <form onsubmit="submitForm(event,'home-success')">
+          <div class="form-group"><label class="form-label">Nombre</label><input class="form-input" type="text" placeholder="Su nombre completo" required></div>
+          <div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" placeholder="correo@ejemplo.com" required></div>
+          <div class="form-group"><label class="form-label">Asunto</label><input class="form-input" type="text" placeholder="¿En qué podemos ayudarle?"></div>
+          <div class="form-group"><label class="form-label">Mensaje</label><textarea class="form-textarea" placeholder="Describa brevemente su situación legal..."></textarea></div>
+          <button type="submit" class="btn-primary">Enviar Mensaje</button>
+          <div class="form-success" id="home-success">✓ Mensaje enviado. Le contactaremos a la brevedad.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="fb-name">Leycaslaw</div>
+        <div class="fb-desc">Leyton y Castillo — Firma de abogados establecida en la República de Panamá. Transparencia, integridad y excelencia profesional.</div>
+      </div>
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <a onclick="nav('inicio')">Inicio</a>
+        <a onclick="nav('nosotros')">Nosotros</a>
+        <a onclick="nav('practica')">Práctica</a>
+        <a onclick="nav('agenda')">Agenda una Cita</a>
+      </div>
+      <div class="footer-col">
+        <h4>Abogados</h4>
+        <a onclick="nav('francisco')">Francisco Castillo</a>
+        <a onclick="nav('daniel')">Daniel Leyton</a>
+        <span>Ciudad de Panamá, Panamá</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Leycaslaw — Leyton y Castillo. Todos los derechos reservados.</div>
+      <div class="footer-links">
+        <a onclick="nav('privacidad')">Privacidad</a>
+        <a onclick="nav('tos')">Términos del Servicio</a>
+      </div>
+    </div>
+  </footer>
+</div><!-- /page-inicio -->
+
+
+<!-- ═══════════════ NOSOTROS ═══════════════ -->
+<div class="page" id="page-nosotros">
+
+  <div class="nosotros-hero">
+    <p class="section-eyebrow">Sobre Nosotros</p>
+    <h1 class="section-title" style="font-size:clamp(2.5rem,4.5vw,4.5rem);font-family:var(--serif);font-weight:500;">Confía en<br><em style="font-style:italic;color:var(--gold);">los expertos.</em></h1>
+    <div class="page-hero-divider"></div>
+    <p class="section-body" style="max-width:700px;">Nuestros abogados combinan años de práctica, conocimiento profundo de las leyes panameñas y una vocación real por la justicia, lo que nos permite representar a nuestros clientes con firmeza, ética y determinación.</p>
+  </div>
+
+  <div class="nosotros-about">
+    <div>
+      <p class="section-eyebrow">Nuestra historia</p>
+      <h2 class="section-title" style="font-size:1.9rem;">Sobre LeyCast Law</h2>
+      <div style="height:1rem;"></div>
+      <p class="section-body" style="max-width:100%;">Leycaslaw nace de la visión compartida de los abogados Daniel Leyton y Francisco Castillo, quienes, tras años de experiencia individual en diferentes ramas del derecho panameño, decidieron unir fuerzas para ofrecer una propuesta legal moderna, ética y centrada en el cliente.</p>
+      <br>
+      <p class="section-body" style="max-width:100%;">Con sede en la Ciudad de Panamá, atendemos a clientes de todo el país en una amplia gama de servicios legales, con énfasis especial en el derecho penal, donde hemos construido una reputación por lograr resultados efectivos, incluso en casos complejos y de alto perfil.</p>
+      <blockquote class="quote-block">"En Leycaslaw, no solo representamos a nuestros clientes; nos involucramos en su defensa como si fuera la nuestra."</blockquote>
+    </div>
+    <div class="mision-vision">
+      <div class="mv-card">
+        <div class="mv-label">Nuestra Misión</div>
+        <div class="mv-text">Brindar defensa y asesoría legal de alta calidad, enfocada en la protección de los derechos de nuestros clientes, ofreciendo un servicio honesto, cercano y estratégico en cada caso.</div>
+      </div>
+      <div class="mv-card">
+        <div class="mv-label">Nuestra Visión</div>
+        <div class="mv-text">Ser reconocidos como una de las firmas legales líderes en Panamá, especialmente en el ámbito del derecho penal, destacándonos por nuestra ética, preparación técnica y compromiso con la justicia.</div>
+      </div>
+      <div class="stats-mini">
+        <div class="stats-mini-card">
+          <div class="sm-num">30+</div>
+          <div class="sm-label">Años combinados</div>
+        </div>
+        <div class="stats-mini-card">
+          <div class="sm-num">6</div>
+          <div class="sm-label">Áreas de práctica</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="valores-section">
+    <p class="section-eyebrow">Lo que nos define</p>
+    <h2 class="section-title" style="color:var(--bg);">Nuestros Valores</h2>
+    <div class="valores-grid">
+      <div class="valor-card">
+        <div class="valor-name">Profesionalismo</div>
+        <div class="valor-body">Actuamos con seriedad, preparación y responsabilidad en cada caso.</div>
+      </div>
+      <div class="valor-card">
+        <div class="valor-name">Confidencialidad</div>
+        <div class="valor-body">Protegemos cada caso con la máxima reserva y discreción profesional.</div>
+      </div>
+      <div class="valor-card">
+        <div class="valor-name">Empatía</div>
+        <div class="valor-body">Escuchamos y comprendemos a nuestros clientes sin prejuicios ni reservas.</div>
+      </div>
+      <div class="valor-card">
+        <div class="valor-name">Transparencia</div>
+        <div class="valor-body">Hablamos claro, sin tecnicismos innecesarios ni falsas expectativas.</div>
+      </div>
+      <div class="valor-card">
+        <div class="valor-name">Determinación</div>
+        <div class="valor-body">Defendemos con firmeza los intereses de quienes confían en nosotros.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="abogados-section">
+    <p class="section-eyebrow">El equipo</p>
+    <h2 class="section-title">Nuestros Abogados</h2>
+    <div class="abogados-grid">
+      <div class="abogado-card" onclick="nav('francisco')">
+        <div class="abogado-img-wrap">
+          <img src="images/frank.jpg" alt="Francisco Castillo">
+        </div>
+        <div class="abogado-info">
+          <div class="abogado-role">Socio Fundador</div>
+          <div class="abogado-name">Francisco Castillo</div>
+          <div class="abogado-body">Abogado litigante con más de 30 años de experiencia, especializado en Derecho Penal y Derecho Procesal. Exfuncionario del Ministerio Público.</div>
+          <a href="#" class="abogado-link" onclick="nav('francisco');return false;">Ver perfil completo</a>
+        </div>
+      </div>
+      <div class="abogado-card" onclick="nav('daniel')">
+        <div class="abogado-img-wrap">
+          <img src="images/Dany.jpg" alt="Daniel Leyton">
+        </div>
+        <div class="abogado-info">
+          <div class="abogado-role">Socio Fundador</div>
+          <div class="abogado-name">Daniel Leyton</div>
+          <div class="abogado-body">Abogado con sólida formación en múltiples ramas del derecho panameño. Especialista en asesoría corporativa y litigio civil y penal.</div>
+          <a href="#" class="abogado-link" onclick="nav('daniel');return false;">Ver perfil completo</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section style="padding:4rem 8vw;">
+    <p class="section-eyebrow">Especialidades</p>
+    <h2 class="section-title" style="margin-bottom:2.5rem;">Nuestras áreas de práctica</h2>
+    <div class="pills-wrap">
+      <span class="pill-tag">Derecho Penal</span>
+      <span class="pill-tag">Derecho Civil</span>
+      <span class="pill-tag">Derecho Comercial</span>
+      <span class="pill-tag">Derecho de Familia</span>
+      <span class="pill-tag">Derecho Laboral</span>
+      <span class="pill-tag">Derecho Internacional</span>
+    </div>
+  </section>
+
+  <div class="cta-banner">
+    <h2 class="cta-banner-title">Experimentados abogados<br><em>a tu servicio.</em></h2>
+    <a href="#" class="btn-primary" onclick="nav('agenda');return false;" style="white-space:nowrap;background:var(--gold);">Agenda una Cita</a>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand"><div class="fb-name">Leycaslaw</div><div class="fb-desc">Leyton y Castillo — Firma de abogados establecida en la República de Panamá.</div></div>
+      <div class="footer-col"><h4>Navegación</h4><a onclick="nav('inicio')">Inicio</a><a onclick="nav('nosotros')">Nosotros</a><a onclick="nav('practica')">Práctica</a><a onclick="nav('agenda')">Agenda</a></div>
+      <div class="footer-col"><h4>Abogados</h4><a onclick="nav('francisco')">Francisco Castillo</a><a onclick="nav('daniel')">Daniel Leyton</a></div>
+    </div>
+    <div class="footer-bottom"><div class="footer-copy">© 2025 Leycaslaw. Todos los derechos reservados.</div><div class="footer-links"><a onclick="nav('privacidad')">Privacidad</a><a onclick="nav('tos')">Términos</a></div></div>
+  </footer>
+</div><!-- /page-nosotros -->
+
+
+<!-- ═══════════════ PRACTICA ═══════════════ -->
+<div class="page" id="page-practica">
+
+  <div class="practica-hero">
+    <div>
+      <p class="section-eyebrow">Experiencia en tus manos</p>
+      <h1 class="section-title" style="font-size:clamp(2.5rem,4.5vw,4.5rem);font-family:var(--serif);font-weight:500;">Áreas de<br><em style="font-style:italic;color:var(--gold);">Práctica</em></h1>
+      <div class="page-hero-divider"></div>
+    </div>
+    <p class="section-body">En Leycaslaw, ofrecemos representación legal en múltiples ramas del derecho, combinando experiencia, compromiso y enfoque estratégico. Atendemos a personas naturales, empresas y entidades en todo el territorio nacional.</p>
+  </div>
+
+  <div style="padding: 3rem 8vw 1rem; border-bottom: 1px solid var(--divider);">
+    <p class="section-body">En Leycaslaw, ofrecemos representación experta en derecho penal, civil, familiar, comercial y más. Nuestros abogados cuentan con formación especializada y una trayectoria sólida en el ejercicio del litigio y la asesoría legal.</p>
+  </div>
+
+  <div class="practica-areas">
+    <div class="area-item">
+      <div class="area-col-left">
+        <div class="area-num">01</div>
+        <div class="area-title">Derecho Penal</div>
+      </div>
+      <div>
+        <p class="area-body">Defendemos tus derechos con firmeza y conocimiento, tanto en el sistema penal acusatorio como en el inquisitivo. Representamos a imputados y víctimas en todas las etapas del proceso penal.</p>
+        <ul class="area-list">
+          <li>Defensa penal integral</li>
+          <li>Representación de víctimas</li>
+          <li>Delitos financieros y de cuello blanco</li>
+          <li>Asesoría en investigaciones previas</li>
+        </ul>
+      </div>
+    </div>
+    <div class="area-item">
+      <div class="area-col-left">
+        <div class="area-num">02</div>
+        <div class="area-title">Derecho Civil</div>
+      </div>
+      <div>
+        <p class="area-body">Resolvemos conflictos entre particulares de forma eficiente, justa y legalmente sólida. Actuamos en todo tipo de procesos civiles y patrimoniales.</p>
+        <ul class="area-list">
+          <li>Reclamaciones por daños y perjuicios</li>
+          <li>Litigios de propiedad</li>
+          <li>Ejecución de contratos y cobros</li>
+          <li>Responsabilidad civil</li>
+        </ul>
+      </div>
+    </div>
+    <div class="area-item">
+      <div class="area-col-left">
+        <div class="area-num">03</div>
+        <div class="area-title">Derecho de Familia</div>
+      </div>
+      <div>
+        <p class="area-body">Te acompañamos en los momentos más sensibles con orientación legal clara y humana. Buscamos siempre soluciones equitativas y sostenibles.</p>
+        <ul class="area-list">
+          <li>Divorcios y separaciones</li>
+          <li>Régimen de visitas y custodia</li>
+          <li>Pensiones alimenticias</li>
+          <li>Adopciones y patria potestad</li>
+        </ul>
+      </div>
+    </div>
+    <div class="area-item">
+      <div class="area-col-left">
+        <div class="area-num">04</div>
+        <div class="area-title">Derecho Comercial</div>
+      </div>
+      <div>
+        <p class="area-body">Apoyamos a emprendedores y empresas en su actividad jurídica diaria. Asesoramos desde la constitución hasta litigios complejos en un entorno empresarial dinámico y competitivo.</p>
+        <ul class="area-list">
+          <li>Constitución y reformas de sociedades</li>
+          <li>Contratos comerciales</li>
+          <li>Cobros judiciales y extrajudiciales</li>
+          <li>Litigios entre socios</li>
+        </ul>
+      </div>
+    </div>
+    <div class="area-item">
+      <div class="area-col-left">
+        <div class="area-num">05</div>
+        <div class="area-title">Derecho Laboral</div>
+      </div>
+      <div>
+        <p class="area-body">Asesoramos tanto a empleadores como a trabajadores en procesos individuales o colectivos, con enfoque en la conciliación y la justicia laboral.</p>
+        <ul class="area-list">
+          <li>Despidos e indemnizaciones</li>
+          <li>Demandas laborales</li>
+          <li>Contratación y reglamentos internos</li>
+          <li>Representación ante MITRADEL</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:var(--bg-alt);padding:6rem 8vw;display:grid;grid-template-columns:1fr auto;align-items:center;gap:4rem;">
+    <div>
+      <p class="section-eyebrow">Agenda una cita</p>
+      <h2 class="section-title" style="font-size:2.2rem;">¿Listo para asesorarte con los expertos?</h2>
+    </div>
+    <a href="#" class="btn-primary" onclick="nav('agenda');return false;" style="white-space:nowrap;">Agenda una Cita Ya</a>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand"><div class="fb-name">Leycaslaw</div><div class="fb-desc">Leyton y Castillo — Firma de abogados establecida en la República de Panamá.</div></div>
+      <div class="footer-col"><h4>Navegación</h4><a onclick="nav('inicio')">Inicio</a><a onclick="nav('nosotros')">Nosotros</a><a onclick="nav('practica')">Práctica</a><a onclick="nav('agenda')">Agenda</a></div>
+      <div class="footer-col"><h4>Abogados</h4><a onclick="nav('francisco')">Francisco Castillo</a><a onclick="nav('daniel')">Daniel Leyton</a></div>
+    </div>
+    <div class="footer-bottom"><div class="footer-copy">© 2025 Leycaslaw. Todos los derechos reservados.</div><div class="footer-links"><a onclick="nav('privacidad')">Privacidad</a><a onclick="nav('tos')">Términos</a></div></div>
+  </footer>
+</div><!-- /page-practica -->
+
+
+<!-- ═══════════════ FRANCISCO ═══════════════ -->
+<div class="page" id="page-francisco">
+  <div class="profile-layout">
+    <div class="profile-left">
+      <div class="profile-photo">
+        <img src="images/frank.jpg" alt="Francisco Castillo">
+      </div>
+      <div class="profile-meta">
+        <div class="p-name">Francisco<br>Castillo</div>
+        <div class="p-role">Socio Fundador · Derecho Penal</div>
+      </div>
+    </div>
+    <div class="profile-right">
+      <div class="profile-section">
+        <div class="profile-section-label">Perfil profesional</div>
+        <div class="profile-section-title">Abogado litigante con más de 30 años de trayectoria.</div>
+        <p class="profile-body">Francisco Castillo es abogado litigante con más de 30 años de experiencia, especializado en Derecho Penal y Derecho Procesal. Como exfuncionario del Ministerio Público, combina un profundo conocimiento legal con un compromiso firme por la justicia.</p>
+        <p class="profile-body" style="margin-top:0.75rem;">Socio fundador de Leycaslaw, aporta una trayectoria sólida y una reputación construida a lo largo de décadas de servicio al sistema judicial panameño, habiendo intervenido en casos de alta complejidad y perfil.</p>
+      </div>
+      <div class="profile-section">
+        <div class="profile-section-label">Especialidades</div>
+        <div class="profile-specialties">
+          <span class="specialty-tag">Derecho Penal</span>
+          <span class="specialty-tag">Derecho Procesal</span>
+          <span class="specialty-tag">Sistema Acusatorio</span>
+          <span class="specialty-tag">Sistema Inquisitivo</span>
+          <span class="specialty-tag">Delitos Financieros</span>
+          <span class="specialty-tag">Ministerio Público</span>
+        </div>
+      </div>
+      <div class="profile-section">
+        <div class="profile-section-label">Trayectoria</div>
+        <div style="display:flex;flex-direction:column;gap:1.5rem;">
+          <div style="display:grid;grid-template-columns:120px 1fr;gap:1.5rem;">
+            <div style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-light);padding-top:0.1rem;">Actualidad</div>
+            <div><strong style="font-size:0.9rem;color:var(--ink);">Socio Fundador, Leycaslaw</strong><p style="font-size:0.85rem;color:var(--ink-mid);margin-top:0.2rem;">Firma de abogados en la Ciudad de Panamá.</p></div>
+          </div>
+          <div style="display:grid;grid-template-columns:120px 1fr;gap:1.5rem;">
+            <div style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-light);padding-top:0.1rem;">Anterior</div>
+            <div><strong style="font-size:0.9rem;color:var(--ink);">Ministerio Público, República de Panamá</strong><p style="font-size:0.85rem;color:var(--ink-mid);margin-top:0.2rem;">Ejercicio como funcionario del Ministerio Público.</p></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <a href="#" class="btn-primary" onclick="nav('agenda');return false;">Agendar Consulta</a>
+      </div>
+    </div>
+  </div>
+</div><!-- /page-francisco -->
+
+
+<!-- ═══════════════ DANIEL ═══════════════ -->
+<div class="page" id="page-daniel">
+  <div class="profile-layout">
+    <div class="profile-left">
+      <div class="profile-photo">
+        <img src="images/Dany.jpg" alt="Daniel Leyton">
+      </div>
+      <div class="profile-meta">
+        <div class="p-name">Daniel<br>Leyton</div>
+        <div class="p-role">Socio Fundador · Derecho Civil y Comercial</div>
+      </div>
+    </div>
+    <div class="profile-right">
+      <div class="profile-section">
+        <div class="profile-section-label">Perfil profesional</div>
+        <div class="profile-section-title">Especialista en asesoría corporativa y litigio civil.</div>
+        <p class="profile-body">Daniel Leyton es abogado con sólida formación en múltiples ramas del derecho panameño. Cofundador de Leycaslaw junto a Francisco Castillo, aporta una visión estratégica y moderna al ejercicio de la abogacía.</p>
+        <p class="profile-body" style="margin-top:0.75rem;">Su práctica abarca el derecho civil, comercial y penal, con especial énfasis en la asesoría a empresas y particulares que enfrentan procesos legales complejos. Destaca por su capacidad de análisis y su enfoque orientado a resultados.</p>
+      </div>
+      <div class="profile-section">
+        <div class="profile-section-label">Especialidades</div>
+        <div class="profile-specialties">
+          <span class="specialty-tag">Derecho Civil</span>
+          <span class="specialty-tag">Derecho Comercial</span>
+          <span class="specialty-tag">Derecho Penal</span>
+          <span class="specialty-tag">Asesoría Corporativa</span>
+          <span class="specialty-tag">Contratos</span>
+          <span class="specialty-tag">Litigio Civil</span>
+        </div>
+      </div>
+      <div class="profile-section">
+        <div class="profile-section-label">Trayectoria</div>
+        <div style="display:flex;flex-direction:column;gap:1.5rem;">
+          <div style="display:grid;grid-template-columns:120px 1fr;gap:1.5rem;">
+            <div style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-light);padding-top:0.1rem;">Actualidad</div>
+            <div><strong style="font-size:0.9rem;color:var(--ink);">Socio Fundador, Leycaslaw</strong><p style="font-size:0.85rem;color:var(--ink-mid);margin-top:0.2rem;">Firma de abogados en la Ciudad de Panamá.</p></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <a href="#" class="btn-primary" onclick="nav('agenda');return false;">Agendar Consulta</a>
+      </div>
+    </div>
+  </div>
+</div><!-- /page-daniel -->
+
+
+<!-- ═══════════════ AGENDA ═══════════════ -->
+<div class="page" id="page-agenda">
+  <div class="agenda-layout">
+    <div class="agenda-left">
+      <div>
+        <p class="section-eyebrow" style="color:var(--gold);">Contáctenos</p>
+        <h1 class="section-title" style="color:var(--bg);font-size:clamp(2rem,3.5vw,3.2rem);font-family:var(--serif);font-weight:500;">Agenda una<br><em style="font-style:italic;color:var(--gold);">cita ahora.</em></h1>
+        <div style="width:48px;height:2px;background:var(--gold);margin:1.5rem 0;"></div>
+        <p class="section-body" style="color:oklch(65% 0.01 260);">En Leycaslaw estamos listos para escucharte y ayudarte. Confidencialidad, compromiso y atención profesional desde el primer contacto.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1.25rem;">
+        <div class="contact-detail">
+          <div class="cd-icon">✉</div>
+          <div class="cd-text"><strong>Email</strong>info@leycaslaw.com</div>
+        </div>
+        <div class="contact-detail">
+          <div class="cd-icon">☎</div>
+          <div class="cd-text"><strong>Ubicación</strong>Ciudad de Panamá, República de Panamá</div>
+        </div>
+        <div class="contact-detail">
+          <div class="cd-icon">⚖</div>
+          <div class="cd-text"><strong>Horario</strong>Lunes a Viernes, 8:00am – 6:00pm</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;">
+        <div style="background:oklch(18% 0.01 260);border-radius:12px;padding:1.5rem;">
+          <div style="font-family:var(--serif);font-size:1.8rem;color:var(--bg);">30+</div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:oklch(48% 0.01 260);margin-top:0.2rem;">Años exp.</div>
+        </div>
+        <div style="background:oklch(18% 0.01 260);border-radius:12px;padding:1.5rem;">
+          <div style="font-family:var(--serif);font-size:1.8rem;color:var(--bg);">100%</div>
+          <div style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:oklch(48% 0.01 260);margin-top:0.2rem;">Satisfacción</div>
+        </div>
+      </div>
+    </div>
+    <div class="agenda-right">
+      <div style="max-width:480px;">
+        <h2 style="font-family:var(--serif);font-size:1.6rem;font-weight:500;color:var(--ink);margin-bottom:0.5rem;">Formulario de contacto</h2>
+        <p style="font-size:0.88rem;color:var(--ink-light);margin-bottom:2rem;">Completa el formulario y nos pondremos en contacto a la brevedad.</p>
+        <form onsubmit="submitForm(event,'agenda-success')">
+          <div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" placeholder="correo@ejemplo.com" required></div>
+          <div class="form-group"><label class="form-label">Nombre</label><input class="form-input" type="text" placeholder="Su nombre completo" required></div>
+          <div class="form-group"><label class="form-label">Dirección / Ciudad</label><input class="form-input" type="text" placeholder="Ciudad de Panamá"></div>
+          <div class="form-group"><label class="form-label">Mensaje</label><textarea class="form-textarea" placeholder="Describa brevemente su situación legal..." required></textarea></div>
+          <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">Enviar Mensaje</button>
+          <div class="form-success" id="agenda-success">✓ Su mensaje fue enviado. Le contactaremos a la brevedad. Gracias.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand"><div class="fb-name">Leycaslaw</div><div class="fb-desc">Leyton y Castillo — Firma de abogados establecida en la República de Panamá.</div></div>
+      <div class="footer-col"><h4>Navegación</h4><a onclick="nav('inicio')">Inicio</a><a onclick="nav('nosotros')">Nosotros</a><a onclick="nav('practica')">Práctica</a></div>
+      <div class="footer-col"><h4>Abogados</h4><a onclick="nav('francisco')">Francisco Castillo</a><a onclick="nav('daniel')">Daniel Leyton</a></div>
+    </div>
+    <div class="footer-bottom"><div class="footer-copy">© 2025 Leycaslaw. Todos los derechos reservados.</div><div class="footer-links"><a onclick="nav('privacidad')">Privacidad</a><a onclick="nav('tos')">Términos</a></div></div>
+  </footer>
+</div><!-- /page-agenda -->
+
+
+<!-- ═══════════════ PRIVACIDAD ═══════════════ -->
+<div class="page" id="page-privacidad">
+  <section style="padding-top:calc(var(--nav-h) + 5rem);max-width:760px;margin:0 auto 0 8vw;">
+    <p class="section-eyebrow">Legal</p>
+    <h1 class="section-title" style="font-size:2.5rem;font-family:var(--serif);">Política de Privacidad</h1>
+    <div class="page-hero-divider"></div>
+    <p class="section-body" style="max-width:100%;margin-bottom:1.5rem;">En Leycaslaw respetamos su privacidad y estamos comprometidos con la protección de sus datos personales. La información que nos proporcione a través de nuestros formularios de contacto será utilizada exclusivamente para responder a sus consultas legales y gestionar su relación con nuestra firma.</p>
+    <p class="section-body" style="max-width:100%;margin-bottom:1.5rem;">No compartimos, vendemos ni cedemos sus datos personales a terceros sin su consentimiento expreso. Toda la información es tratada con la máxima confidencialidad, conforme a la legislación vigente de la República de Panamá.</p>
+    <p class="section-body" style="max-width:100%;">Para ejercer sus derechos de acceso, rectificación o eliminación de datos, puede contactarnos en info@leycaslaw.com.</p>
+    <div style="margin-top:3rem;"><a href="#" class="btn-ghost" onclick="nav('inicio');return false;">← Volver al Inicio</a></div>
+  </section>
+  <footer style="margin-top:6rem;">
+    <div class="footer-bottom" style="padding-top:2rem;"><div class="footer-copy">© 2025 Leycaslaw. Todos los derechos reservados.</div><div class="footer-links"><a onclick="nav('privacidad')">Privacidad</a><a onclick="nav('tos')">Términos</a></div></div>
+  </footer>
+</div>
+
+
+<!-- ═══════════════ TOS ═══════════════ -->
+<div class="page" id="page-tos">
+  <section style="padding-top:calc(var(--nav-h) + 5rem);max-width:760px;margin:0 auto 0 8vw;">
+    <p class="section-eyebrow">Legal</p>
+    <h1 class="section-title" style="font-size:2.5rem;font-family:var(--serif);">Términos del Servicio</h1>
+    <div class="page-hero-divider"></div>
+    <p class="section-body" style="max-width:100%;margin-bottom:1.5rem;">El uso de este sitio web implica la aceptación de los presentes términos. El contenido publicado en leycaslaw.com es de carácter informativo y no constituye asesoramiento legal. Para obtener orientación jurídica, le recomendamos agendar una consulta con nuestros abogados.</p>
+    <p class="section-body" style="max-width:100%;margin-bottom:1.5rem;">Leycaslaw no se responsabiliza por el uso que el visitante haga de la información contenida en este sitio. Todos los derechos de propiedad intelectual sobre el contenido son propiedad de Leyton y Castillo, Abogados, República de Panamá.</p>
+    <p class="section-body" style="max-width:100%;">Cualquier controversia derivada del uso de este sitio se resolverá bajo la legislación de la República de Panamá.</p>
+    <div style="margin-top:3rem;"><a href="#" class="btn-ghost" onclick="nav('inicio');return false;">← Volver al Inicio</a></div>
+  </section>
+  <footer style="margin-top:6rem;">
+    <div class="footer-bottom" style="padding-top:2rem;"><div class="footer-copy">© 2025 Leycaslaw. Todos los derechos reservados.</div><div class="footer-links"><a onclick="nav('privacidad')">Privacidad</a><a onclick="nav('tos')">Términos</a></div></div>
+  </footer>
+</div>
+
+
+<script>
+function nav(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const el = document.getElementById('page-' + name);
+  if (el) { el.classList.add('active'); window.scrollTo(0, 0); }
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  const navEl = document.getElementById('nav-' + name);
+  if (navEl) navEl.classList.add('active');
+  document.querySelectorAll('.dropdown-menu').forEach(d => d.style.display = '');
+  closeNav();
+}
+
+// Alias for onclick in design
+function showPage(name) { nav(name); }
+
+function toggleNav() {
+  const links = document.getElementById('navLinks');
+  const burger = document.getElementById('hamburger');
+  links.classList.toggle('open');
+  burger.classList.toggle('open');
+}
+
+function closeNav() {
+  document.getElementById('navLinks').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+}
+
+function toggleDropdown(btn) {
+  const menu = btn.parentElement.querySelector('.dropdown-menu');
+  const isOpen = menu.style.display === 'block';
+  document.querySelectorAll('.dropdown-menu').forEach(d => d.style.display = '');
+  if (!isOpen) menu.style.display = 'block';
+}
+
+function selectArea(tab, key) {
+  document.querySelectorAll('.area-tab').forEach(t => t.classList.remove('selected'));
+  tab.classList.add('selected');
+  document.querySelectorAll('.area-content-panel').forEach(p => p.classList.remove('shown'));
+  const panel = document.getElementById('area-' + key);
+  if (panel) panel.classList.add('shown');
+}
+
+function submitForm(e, successId) {
+  e.preventDefault();
+  const el = document.getElementById(successId);
+  if (el) { el.style.display = 'block'; }
+  e.target.reset();
+}
+
+document.querySelectorAll('.expertise-card').forEach(c => {
+  c.addEventListener('click', () => nav('practica'));
+});
+
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.nav-links li') && !e.target.closest('.nav-hamburger')) {
+    document.querySelectorAll('.dropdown-menu').forEach(d => d.style.display = '');
+  }
+});
+</script>
+</body>
+</html>
